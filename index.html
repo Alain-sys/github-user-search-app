@@ -4,11 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
 
     <title>Frontend Mentor | GitHub user search app</title>
   </head>
   <body>
-    <script src="./src/index.js"></script>
+    <header>
+      <h2>devfinder</h2>
+      <button>
+        light
+        <img src="assets/icon-sun.svg" alt="" />
+      </button>
+    </header>
+    <main>
+      <form>
+        <input type="text" />
+        <button type="button">Search</button>
+      </form>
+
+      <div class="user">
+        <div class="user__description">
+          <img src="" alt="" />
+          <div class="user__content">
+            <div class="user__profile">
+              <div class="user__name">
+                <h1>The Octocat</h1>
+                <a href="">@octocat</a>
+              </div>
+              <p>Joined 25 jan 2011</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
+          </div>
+        </div>
+
+        <div class="user__stats">
+          <div class="user__repos">
+            <p>Repos</p>
+            <p>8</p>
+          </div>
+          <div class="user__followers">
+            <p>Followers</p>
+            <p>3938</p>
+          </div>
+          <div class="user__following">
+            <p>Following</p>
+            <p>9</p>
+          </div>
+        </div>
+
+        <div class="user__information">
+          <div class="user__information-one">
+            <div class="user__location">
+              <img src="assets/icon-location.svg" alt="" />
+              <p>San Francisco</p>
+            </div>
+            <div class="user__website">
+              <img src="assets/icon-website.svg" alt="" />
+              <a href="https://github.blog">https://github.blog</a>
+            </div>
+          </div>
+          <div class="user__information-two">
+            <div class="user__twitter">
+              <img src="assets/icon-twitter.svg" alt="" />
+              <p>Not Available</p>
+            </div>
+            <div class="user__company">
+              <img src="assets/icon-company.svg" alt="" />
+              <a href="">@github</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="src/UserSearch.js"></script>
+    <script src="src/theme.js"></script>
   </body>
 </html>
