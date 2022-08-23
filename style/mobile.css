@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fs-button-form: 1rem;
+  --fs-input-form: 0.8125rem;
+  --fs-title: 1rem;
+  --fs-subtitle: 0.8125rem;
+  --fs-text: 0.8125rem;
+  --fs-text-stats: 0.6875rem;
+  --fs-text-number-stats: 1rem;
+
+  --bg-default: hsla(220, 40%, 13%, 1);
+  --bg-default-main: hsla(222, 41%, 20%, 1);
+  --bg-default-button: hsla(212, 100%, 50%, 1);
+  --clr-default-text: hsla(0, 0%, 100%, 1);
+}
