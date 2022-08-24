@@ -1,0 +1,23 @@
+@media (min-width: 48em) {
+  :root {
+    --fs-input-form: 1.125rem;
+    --fs-button-form: 1rem;
+    --lh-button-form: 1.5rem;
+  }
+
+  .content {
+    width: 75%;
+  }
+
+  main {
+    gap: 1.5rem;
+  }
+
+  .form {
+    gap: 1.5rem;
+  }
+
+  .form__search-button {
+    padding: 0.7813rem 1.5rem;
+  }
+}

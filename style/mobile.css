@@ -7,13 +7,15 @@
 }
 
 :root {
-  --fs-button-form: 1rem;
   --fs-input-form: 0.8125rem;
+  --fs-button-form: 0.875rem;
   --fs-title: 1rem;
   --fs-subtitle: 0.8125rem;
   --fs-text: 0.8125rem;
   --fs-text-stats: 0.6875rem;
   --fs-text-number-stats: 1rem;
+
+  --lh-button-form: 1.3125rem;
 
   --bg-default: hsla(220, 40%, 13%, 1);
   --bg-default-main: hsla(222, 41%, 20%, 1);
@@ -111,12 +113,13 @@ main {
 }
 
 .form__search-button {
-  padding: 0.7813em 1em;
+  padding: 0.7813rem 1rem;
   border: none;
   border-radius: 10px;
   background-color: var(--bg-default-button);
   color: var(--clr-default-theme-button);
   font-size: var(--fs-button-form);
+  line-height: var(--lh-button-form);
   cursor: pointer;
   transition: 0.4s ease;
 }
