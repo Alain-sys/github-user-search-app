@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta description="search for github users with this application that use the github API" />
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
     <link rel="stylesheet" href="style/mobile.css" />
     <link rel="stylesheet" href="style/tablet.css" />
@@ -31,50 +32,51 @@
       <main>
         <form class="form">
           <img src="./assets/icon-search.svg" alt="blue search icon" />
-          <input class="form__input" value="" placeholder="Search GitHub username…" aria-label="search git username" type="text" />
-          <button class="form__search-button" type="button">Search</button>
+          <input id="label" class="form__input" value="" placeholder="Search GitHub username…" aria-label="search git username" type="text" />
+          <label for="label"><span class="form__error">No results</span></label>
+          <button class="form__search-button" type="submit">Search</button>
         </form>
 
         <div class="user">
           <div class="user__description">
-            <img class="user__image" src="./assets/octocat.png" alt="" />
+            <img class="user__image" src="" alt="github user image" />
             <div class="user__profile">
               <div>
-                <h1 class="user__name">The Octocat</h1>
-                <a class="user__tag" href="">@octocat</a>
+                <h1 class="user__name"></h1>
+                <a class="user__login"></a>
               </div>
-              <p class="user__joined">Joined 25 jan 2011</p>
+              <p class="user__created"></p>
             </div>
-            <p class="user__content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
+            <p class="user__bio"></p>
           </div>
           <div class="user-sub-block">
             <div class="user-sub-block__stats">
               <div class="user-sub-block__data">
                 <p class="user-sub-block__data-title">Repos</p>
-                <p class="user-sub-block__data-number">8</p>
+                <p class="user-sub-block__repos user-sub-block__data-number"></p>
               </div>
               <div class="user-sub-block__data">
                 <p class="user-sub-block__data-title">Followers</p>
-                <p class="user-sub-block__data-number">3938</p>
+                <p class="user-sub-block__followers user-sub-block__data-number"></p>
               </div>
               <div class="user-sub-block__data">
                 <p class="user-sub-block__data-title">Following</p>
-                <p class="user-sub-block__data-number">9</p>
+                <p class="user-sub-block__following user-sub-block__data-number"></p>
               </div>
             </div>
 
             <div class="user-sub-block__informations">
               <div class="user-sub-block__informations-block">
-                <div class="user-sub-block__work">
+                <div class="location-sub-block user-sub-block__work">
                   <svg height="20" width="14" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M12.797 3.425C11.584 1.33 9.427.05 7.03.002a7.483 7.483 0 00-.308 0C4.325.05 2.17 1.33.955 3.425a6.963 6.963 0 00-.09 6.88l4.959 9.077.007.012c.218.38.609.606 1.045.606.437 0 .828-.226 1.046-.606l.007-.012 4.96-9.077a6.963 6.963 0 00-.092-6.88zm-5.92 5.638c-1.552 0-2.813-1.262-2.813-2.813s1.261-2.812 2.812-2.812S9.69 4.699 9.69 6.25 8.427 9.063 6.876 9.063z"
                       fill="#4b6a9b"
                     />
                   </svg>
-                  <p class="user-sub-block__work__data">San Francisco</p>
+                  <p class="user-sub-block__work__location user-sub-block__work__data"></p>
                 </div>
-                <div class="user-sub-block__work">
+                <div class="website-sub-block user-sub-block__work">
                   <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                     <g fill="#4b6a9b">
                       <path
@@ -85,20 +87,20 @@
                       />
                     </g>
                   </svg>
-                  <a class="user-sub-block__work__data" href="https://github.blog">https://github.blog</a>
+                  <a class="user-sub-block__work__website user-sub-block__work__data"></a>
                 </div>
               </div>
               <div class="user-sub-block__informations-block">
-                <div class="user-sub-block__work">
+                <div class="twitter-sub-block user-sub-block__work">
                   <svg height="18" width="20" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M20 2.799a8.549 8.549 0 01-2.363.647 4.077 4.077 0 001.804-2.266 8.194 8.194 0 01-2.6.993A4.099 4.099 0 009.75 4.977c0 .324.027.637.095.934-3.409-.166-6.425-1.8-8.452-4.288a4.128 4.128 0 00-.56 2.072c0 1.42.73 2.679 1.82 3.408A4.05 4.05 0 01.8 6.598v.045a4.119 4.119 0 003.285 4.028 4.092 4.092 0 01-1.075.135c-.263 0-.528-.015-.776-.07.531 1.624 2.038 2.818 3.831 2.857A8.239 8.239 0 01.981 15.34 7.68 7.68 0 010 15.285a11.543 11.543 0 006.29 1.84c7.545 0 11.67-6.25 11.67-11.667 0-.182-.006-.357-.015-.53A8.18 8.18 0 0020 2.798z"
                       fill="#4b6a9b"
                     />
                   </svg>
-                  <a class="user-sub-block__work__data" href="">Not Available</a>
+                  <a class="user-sub-block__work__twitter user-sub-block__work__data"></a>
                 </div>
-                <div class="user-sub-block__work">
+                <div class="company-sub-block user-sub-block__work">
                   <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                     <g fill="#4b6a9b">
                       <path
@@ -106,7 +108,7 @@
                       />
                     </g>
                   </svg>
-                  <a class="user-sub-block__work__data" href="">@github</a>
+                  <a class="user-sub-block__work__company user-sub-block__work__data"></a>
                 </div>
               </div>
             </div>
@@ -122,7 +124,7 @@
       </footer>
     </div>
 
-    <script src="./src/UserSearch.js"></script>
-    <script src="./src/theme.js"></script>
+    <script src="./src/userSearch.js"></script>
+    <script src="./src/Theme.js"></script>
   </body>
 </html>

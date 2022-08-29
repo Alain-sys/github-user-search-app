@@ -49,11 +49,11 @@
     flex-wrap: wrap;
   }
 
-  .user__joined {
+  .user__created {
     line-height: 2.375rem;
   }
 
-  .user__content {
+  .user__bio {
     grid-area: 2 / 2 / 3 / 3;
   }
 

@@ -104,6 +104,17 @@ main {
   opacity: 1;
 }
 
+.form__error {
+  display: none;
+}
+
+.form__error.active {
+  display: block;
+  font-size: var(--fs-text);
+  font-weight: 700;
+  color: hsla(0, 91%, 62%, 1);
+}
+
 .form__search-button {
   padding: 0.7813rem 1rem;
   border: none;
@@ -132,6 +143,7 @@ main {
   grid-area: 1 / 1 / 2 / 2;
   width: 70px;
   height: 70px;
+  border-radius: 50%;
 }
 
 .user__profile {
@@ -144,20 +156,24 @@ main {
   font-size: var(--fs-title);
 }
 
-.user__tag {
+.user__login {
   color: var(--bg-default-button-link);
   font-size: var(--fs-subtitle);
 }
 
-.user__joined {
+.user__created {
   font-size: var(--fs-text);
   line-height: 1.25rem;
 }
 
-.user__content {
+.user__bio {
   grid-area: 2 / 1 / 3 / 3;
   font-size: var(--fs-text);
   line-height: 1.5rem;
+}
+
+.user__bio.inactive {
+  opacity: 0.5;
 }
 
 .user-sub-block__stats {
@@ -201,6 +217,15 @@ main {
   align-items: center;
   flex-wrap: wrap;
   gap: 13px;
+}
+
+.user-sub-block__work.inactive {
+  opacity: 0.5;
+}
+
+.user-sub-block__work.inactive a:hover {
+  text-decoration: none;
+  cursor: initial;
 }
 
 .user-sub-block__work > svg {
