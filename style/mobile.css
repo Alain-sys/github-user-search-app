@@ -19,10 +19,13 @@
 
   --bg-default: hsla(220, 40%, 13%, 1);
   --bg-default-main: hsla(222, 41%, 20%, 1);
-  --bg-default-button-link: hsla(212, 100%, 50%, 1);
+  --bg-default-search: hsla(212, 100%, 50%, 1);
+  --clr-default-login: hsla(212, 100%, 50%, 1);
   --clr-default-text: hsla(0, 0%, 100%, 1);
+  --clr-default-text-bold: hsla(0, 0%, 100%, 1);
   --clr-default-theme-button: hsla(0, 0%, 100%, 1);
   --clr-default-theme-button-hover: hsla(222, 44%, 70%, 1);
+  --clr-default-user-created: hsla(0, 0%, 100%, 1);
   --clr-default-icon: hsla(0, 0%, 100%, 1);
 }
 
@@ -57,6 +60,7 @@ header {
 
 .logo {
   font-size: 1.625rem;
+  color: var(--clr-default-text-bold);
 }
 
 .theme-button {
@@ -70,6 +74,16 @@ header {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2.5px;
+}
+
+.theme-button__icon-sun.active,
+.theme-button__icon-moon.active {
+  display: block;
+}
+
+.theme-button__icon-sun,
+.theme-button__icon-moon {
+  display: none;
 }
 
 /***** Main *****/
@@ -92,7 +106,7 @@ main {
 .form__input {
   flex-grow: 1;
   border: none;
-  color: var(--clr-default-text);
+  color: var(--clr-default-text-bold);
   background-color: transparent;
   font-size: var(--fs-input-form);
   caret-color: hsla(212, 100%, 50%, 1);
@@ -119,8 +133,8 @@ main {
   padding: 0.7813rem 1rem;
   border: none;
   border-radius: 10px;
-  background-color: var(--bg-default-button-link);
-  color: var(--clr-default-theme-button);
+  background-color: var(--bg-default-search);
+  color: hsla(0, 0%, 100%, 1);
   font-size: var(--fs-button-form);
   line-height: var(--lh-button-form);
   font-weight: 700;
@@ -154,16 +168,18 @@ main {
 
 .user__name {
   font-size: var(--fs-title);
+  color: var(--clr-default-text-bold);
 }
 
 .user__login {
-  color: var(--bg-default-button-link);
+  color: var(--bg-default-login);
   font-size: var(--fs-subtitle);
 }
 
 .user__created {
   font-size: var(--fs-text);
   line-height: 1.25rem;
+  color: var(--clr-default-user-created);
 }
 
 .user__bio {
@@ -198,6 +214,7 @@ main {
   font-size: var(--fs-text-data-number);
   font-weight: 700;
   line-height: 2rem;
+  color: var(--clr-default-text-bold);
 }
 
 .user-sub-block__informations {
@@ -223,24 +240,19 @@ main {
   opacity: 0.5;
 }
 
-.user-sub-block__work.inactive a:hover {
-  text-decoration: none;
-  cursor: initial;
-}
-
 .user-sub-block__work > svg {
   width: 20px;
   height: 20px;
 }
 
-.user-sub-block__work path {
+.user-sub-block__icons-default {
   fill: var(--clr-default-icon);
 }
 
 .user-sub-block__work__data {
   line-height: 1.25rem;
   font-size: var(--fs-text);
-  color: var(--clr-default-icon);
+  color: var(--clr-default-text);
 }
 
 /***** Footer *****/

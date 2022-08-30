@@ -11,17 +11,7 @@ const userPublicRepos = document.querySelector('.user-sub-block__repos ');
 const userFollowers = document.querySelector('.user-sub-block__followers');
 const userFollowing = document.querySelector('.user-sub-block__following');
 
-const userLocation = document.querySelector('.user-sub-block__work__location');
-const userWebsite = document.querySelector('.user-sub-block__work__website');
-const userTwitter = document.querySelector('.user-sub-block__work__twitter');
-const userCompany = document.querySelector('.user-sub-block__work__company');
-
-const locationBlock = document.querySelector('.location-sub-block');
-const websiteBlock = document.querySelector('.website-sub-block');
-const twitterBlock = document.querySelector('.twitter-sub-block');
-const companyBlock = document.querySelector('.company-sub-block');
-
-let getAPI = async (username) => {
+const getAPI = async (username) => {
   const response = await fetch(`https://api.github.com/users/${username}`);
   if (response.status !== 200) {
     formError.classList.add('active');
@@ -55,8 +45,57 @@ form.addEventListener('submit', (e) => {
 });
 
 const dataUser = (data) => {
+  const subBlockWorkData = document.querySelectorAll('.user-sub-block__work__data');
+  const subBlockWork = document.querySelectorAll('.user-sub-block__work');
+
   const dataDate = new Date(data.created_at);
   const date = dataDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+  subBlockWorkData.forEach((element) => {
+    element.remove();
+  });
+
+  const array = [
+    { id: 0, content: data.location },
+    { id: 1, content: data.blog },
+    { id: 2, content: data.twitter_username },
+    { id: 3, content: data.company },
+  ];
+
+  [...subBlockWork].map((item, index) => {
+    const result = array.filter((it) => it.id === index);
+    result.map((element, index) => {
+      if (element.content === null || element.content === undefined || element.content === '') {
+        item.classList.add('inactive');
+        const p = document.createElement('p');
+        p.textContent = 'Not Available';
+        p.classList.add('user-sub-block__work__data', 'inactive');
+        item.appendChild(p);
+      } else if (element.id === 0) {
+        item.classList.remove('inactive');
+        const p = document.createElement('p');
+        p.textContent = element.content;
+        p.classList.add('user-sub-block__work__data');
+        item.appendChild(p);
+      } else {
+        item.classList.remove('inactive');
+        const a = document.createElement('a');
+        a.classList.add('user-sub-block__work__data');
+        item.appendChild(a);
+        if (element.id === 1) {
+          a.textContent = element.content;
+          a.href = element.content;
+        } else if (element.id === 2) {
+          a.textContent = element.content;
+          a.href = `https://twitter.com/${element.content}`;
+        } else if (element.id === 3) {
+          const company = data.company.substring(1);
+          a.textContent = element.content;
+          a.href = `https://github.com/${company}`;
+        }
+      }
+    });
+  });
 
   userImage.src = data.avatar_url;
 
@@ -81,45 +120,6 @@ const dataUser = (data) => {
   userPublicRepos.textContent = data.public_repos;
   userFollowers.textContent = data.followers;
   userFollowing.textContent = data.following;
-
-  if (data.location !== null) {
-    userLocation.textContent = data.location;
-    locationBlock.classList.remove('inactive');
-  } else {
-    userLocation.textContent = 'Not Available';
-    locationBlock.classList.add('inactive');
-  }
-
-  if (data.blog !== '') {
-    userWebsite.textContent = data.blog;
-    userWebsite.href = data.blog;
-    websiteBlock.classList.remove('inactive');
-  } else {
-    userWebsite.textContent = 'Not Available';
-    userWebsite.href = '#';
-    websiteBlock.classList.add('inactive');
-  }
-
-  if (data.twitter_username !== null) {
-    userTwitter.textContent = data.twitter_username;
-    userTwitter.href = `https://twitter.com/${data.twitter_username}`;
-    twitterBlock.classList.remove('inactive');
-  } else {
-    userTwitter.textContent = 'Not Available';
-    userTwitter.href = '#';
-    twitterBlock.classList.add('inactive');
-  }
-
-  if (data.company !== null) {
-    const test = data.company.substring(1);
-    userCompany.textContent = data.company;
-    userCompany.href = `https://github.com/${test}`;
-    companyBlock.classList.remove('inactive');
-  } else {
-    userCompany.textContent = 'Not Available';
-    userCompany.href = '#';
-    companyBlock.classList.add('inactive');
-  }
 
   input.value = '';
 };
