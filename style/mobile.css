@@ -69,11 +69,11 @@ header {
   gap: 16px;
   border: none;
   background-color: transparent;
-  color: var(--clr-default-theme-button);
   font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2.5px;
+  color: var(--clr-default-theme-button);
 }
 
 .theme-button__icon-sun.active,
@@ -106,9 +106,9 @@ main {
 .form__input {
   flex-grow: 1;
   border: none;
-  color: var(--clr-default-text-bold);
   background-color: transparent;
   font-size: var(--fs-input-form);
+  color: var(--clr-default-text-bold);
   caret-color: hsla(212, 100%, 50%, 1);
   outline: transparent;
   overflow: hidden;
@@ -134,10 +134,10 @@ main {
   border: none;
   border-radius: 10px;
   background-color: var(--bg-default-search);
-  color: hsla(0, 0%, 100%, 1);
   font-size: var(--fs-button-form);
   line-height: var(--lh-button-form);
   font-weight: 700;
+  color: hsla(0, 0%, 100%, 1);
 }
 
 .user {
@@ -162,7 +162,6 @@ main {
 
 .user__profile {
   grid-area: 1 / 2 / 2 / 3;
-
   gap: 0.375rem;
 }
 
@@ -172,8 +171,8 @@ main {
 }
 
 .user__login {
-  color: var(--bg-default-login);
   font-size: var(--fs-subtitle);
+  color: var(--bg-default-login);
 }
 
 .user__created {

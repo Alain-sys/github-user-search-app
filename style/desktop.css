@@ -3,6 +3,7 @@
     max-width: 730px;
   }
 
+  /***** Header *****/
   .theme-button {
     cursor: pointer;
     transition: 0.4s ease;
@@ -20,6 +21,7 @@
     fill: var(--clr-default-theme-button-hover);
   }
 
+  /***** Main *****/
   .form__search-button {
     cursor: pointer;
     transition: 0.4s ease;

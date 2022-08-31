@@ -6,7 +6,6 @@ const userName = document.querySelector('.user__name');
 const userLogin = document.querySelector('.user__login');
 const userCreated = document.querySelector('.user__created');
 const userBio = document.querySelector('.user__bio');
-
 const userPublicRepos = document.querySelector('.user-sub-block__repos ');
 const userFollowers = document.querySelector('.user-sub-block__followers');
 const userFollowing = document.querySelector('.user-sub-block__following');
@@ -48,13 +47,6 @@ const dataUser = (data) => {
   const subBlockWorkData = document.querySelectorAll('.user-sub-block__work__data');
   const subBlockWork = document.querySelectorAll('.user-sub-block__work');
 
-  const dataDate = new Date(data.created_at);
-  const date = dataDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-
-  subBlockWorkData.forEach((element) => {
-    element.remove();
-  });
-
   const array = [
     { id: 0, content: data.location },
     { id: 1, content: data.blog },
@@ -62,40 +54,8 @@ const dataUser = (data) => {
     { id: 3, content: data.company },
   ];
 
-  [...subBlockWork].map((item, index) => {
-    const result = array.filter((it) => it.id === index);
-    result.map((element, index) => {
-      if (element.content === null || element.content === undefined || element.content === '') {
-        item.classList.add('inactive');
-        const p = document.createElement('p');
-        p.textContent = 'Not Available';
-        p.classList.add('user-sub-block__work__data', 'inactive');
-        item.appendChild(p);
-      } else if (element.id === 0) {
-        item.classList.remove('inactive');
-        const p = document.createElement('p');
-        p.textContent = element.content;
-        p.classList.add('user-sub-block__work__data');
-        item.appendChild(p);
-      } else {
-        item.classList.remove('inactive');
-        const a = document.createElement('a');
-        a.classList.add('user-sub-block__work__data');
-        item.appendChild(a);
-        if (element.id === 1) {
-          a.textContent = element.content;
-          a.href = element.content;
-        } else if (element.id === 2) {
-          a.textContent = element.content;
-          a.href = `https://twitter.com/${element.content}`;
-        } else if (element.id === 3) {
-          const company = data.company.substring(1);
-          a.textContent = element.content;
-          a.href = `https://github.com/${company}`;
-        }
-      }
-    });
-  });
+  const dataDate = new Date(data.created_at);
+  const date = dataDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
   userImage.src = data.avatar_url;
 
@@ -120,6 +80,45 @@ const dataUser = (data) => {
   userPublicRepos.textContent = data.public_repos;
   userFollowers.textContent = data.followers;
   userFollowing.textContent = data.following;
+
+  subBlockWorkData.forEach((element) => {
+    element.remove();
+  });
+
+  [...subBlockWork].map((item, index) => {
+    const result = array.filter((it) => it.id === index);
+    result.map((element, index) => {
+      if (element.content === null || element.content === undefined || element.content === '') {
+        item.classList.add('inactive');
+        const p = document.createElement('p');
+        p.textContent = 'Not Available';
+        p.classList.add('user-sub-block__work__data', 'inactive');
+        item.appendChild(p);
+      } else if (element.id === 0 && element.content !== null) {
+        item.classList.remove('inactive');
+        const p = document.createElement('p');
+        p.textContent = element.content;
+        p.classList.add('user-sub-block__work__data');
+        item.appendChild(p);
+      } else {
+        item.classList.remove('inactive');
+        const a = document.createElement('a');
+        a.classList.add('user-sub-block__work__data');
+        item.appendChild(a);
+        if (element.id === 1) {
+          a.textContent = element.content;
+          a.href = element.content;
+        } else if (element.id === 2) {
+          a.textContent = element.content;
+          a.href = `https://twitter.com/${element.content}`;
+        } else if (element.id === 3) {
+          const company = data.company.substring(1);
+          a.textContent = element.content;
+          a.href = `https://github.com/${company}`;
+        }
+      }
+    });
+  });
 
   input.value = '';
 };
