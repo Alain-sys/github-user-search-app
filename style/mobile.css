@@ -20,7 +20,6 @@
   --bg-default: hsla(220, 40%, 13%, 1);
   --bg-default-main: hsla(222, 41%, 20%, 1);
   --bg-default-search: hsla(212, 100%, 50%, 1);
-  --clr-default-login: hsla(212, 100%, 50%, 1);
   --clr-default-text: hsla(0, 0%, 100%, 1);
   --clr-default-text-bold: hsla(0, 0%, 100%, 1);
   --clr-default-theme-button: hsla(0, 0%, 100%, 1);
@@ -95,7 +94,6 @@ main {
 
 .form {
   display: flex;
-  flex-flow: row wrap;
   align-items: center;
   padding: 0.4063rem 7px 0.4688rem 16px;
   gap: 8px;
@@ -116,6 +114,7 @@ main {
 
 .form__input::placeholder {
   opacity: 1;
+  color: var(--clr-default-text);
 }
 
 .form__error {
@@ -172,7 +171,7 @@ main {
 
 .user__login {
   font-size: var(--fs-subtitle);
-  color: var(--bg-default-login);
+  color: hsla(212, 100%, 50%, 1);
 }
 
 .user__created {
